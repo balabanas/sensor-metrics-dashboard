@@ -45,7 +45,7 @@ First, create .env file in source root (where `docker-compose.yml` resides):
 ```
 DJANGO_SECRET_KEY=<generate some long random string here>
 DJANGO_DEBUG=0
-DJANGO_ALLOWED_HOSTS=django
+DJANGO_ALLOWED_HOSTS=localhost
 
 ```
 
