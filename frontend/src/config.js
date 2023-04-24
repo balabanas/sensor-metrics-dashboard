@@ -1,7 +1,5 @@
 const config = {
-    // API URL to get sensor data. For prod the port should coincide with frontend's port,
-    // as it will be proxied by nginx anyway. For test the port should be Django dev server's port
-    // apiUrl: 'http://' + process.env.FRONTEND_HOST + ':' + process.env.FRONTEND_PORT + '/api/sensors/',
+    // API URL to get sensor data
     apiUrl: 'http://localhost:8000/api/sensors/',
 
 

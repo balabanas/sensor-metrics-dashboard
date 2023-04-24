@@ -59,5 +59,5 @@ def sensors(request):
                              "types": types,
                              "metrics": metrics})
     # Allows CORS, so to script make a request to django port
-    response['Access-Control-Allow-Origin'] = f'http://{env("FRONTEND_HOST")}:{env("FRONTEND_PORT")}'
+    response['Access-Control-Allow-Origin'] = f'http://localhost:8080'
     return response

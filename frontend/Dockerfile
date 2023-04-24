@@ -1,9 +1,9 @@
 FROM node:latest as build-stage
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
-COPY package*.json ./
+COPY frontend/package*.json ./
 RUN npm install
-COPY ./ .
+COPY frontend/ .
 RUN npm run build
 
 FROM nginx as production-stage
@@ -12,4 +12,4 @@ RUN  apt-get update \
   && rm -rf /var/lib/apt/lists/*
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY --from=build-stage /app/nginx/nginx.conf /etc/nginx/conf.d/default.conf:ro
+COPY --from=build-stage /app/nginx/nginx.conf /etc/nginx/conf.d/default.conf
