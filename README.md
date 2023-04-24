@@ -39,29 +39,33 @@ The data is located in the 3 files on the server:
 2. For sensors with no sensor types found in sensorTypes.json, sensor type is set to be 'n/a' (not available), so to make this special category selectable in the filter.
 3. Missing metrics values, which are irrelevant to a specific sensors are kept untouched, and denoted in the resulting dashboard as empty cells.4. 
 
-## Build/Run instructions
-### .env file
+### Build/Run instructions
+#### .env file
+First, create .env file in source root (where `docker-compose.yml` resides):
 ```
-DJANGO_SECRET_KEY=longrandomstring
-DJANGO_PORT=8000
-DJANGO_DEBUG=1
-DJANGO_ALLOWED_HOSTS=localhost
+DJANGO_SECRET_KEY=<generate some long random string here>
+DJANGO_DEBUG=0
+DJANGO_ALLOWED_HOSTS=django
 
-FRONTEND_HOST=localhost
-FRONTEND_PORT=8080
 ```
 
+#### config.js file
+You may want to alter `selectedMetricDefault` parameter to set metrics selected by default in the dashboard. Include `'All'` into the list if you want all the metrics selected by default, or `'None'`, for the opposite.
+
+#### Run
 The application is shipped in 2 Docker containers. To spin them up, from the source root (where the `docker-compose.yml` file is located):
 * `docker compose up --build`
 
+#### See
 Then in your browser, open:
 * `http://localhost:8080/`
  
 Now, you see it:
 ![img.png](docs/img/img.png)
 
-##TODOs
+###TODOs
 * rename sensor_name column to Sensor name in Vue
 * more tests for django sensors view
 * e2e tests
 * logging
+* separate local/prod configs
