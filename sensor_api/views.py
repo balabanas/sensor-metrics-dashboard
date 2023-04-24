@@ -58,6 +58,4 @@ def sensors(request):
                              "columns": columns,
                              "types": types,
                              "metrics": metrics})
-    # Allows CORS, so to script make a request to django port
-    response['Access-Control-Allow-Origin'] = f'http://{env("FRONTEND_HOST")}:{env("FRONTEND_PORT")}'
     return response
