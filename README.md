@@ -49,7 +49,7 @@ DJANGO_ALLOWED_HOSTS=django
 
 ```
 
-#### config.js file
+#### frontend/src/config.js file
 You may want to alter `selectedMetricDefault` parameter to set metrics selected by default in the dashboard. Include `'All'` into the list if you want all the metrics selected by default, or `'None'`, for the opposite.
 
 #### Run
