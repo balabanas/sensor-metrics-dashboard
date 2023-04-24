@@ -1,0 +1,33 @@
+# The structure of metrics.json
+```
+{
+   "data":{
+      "lang":"en",
+      "currentItemCount":1,
+      "items":[
+         {
+            "id":"1",
+            "name":"Temperature",
+            "units":[
+               {
+                  "id":"1",
+                  "name":"°C",
+                  "precision":2,
+                  "selected":true
+               },
+               {
+                  "id":"101",
+                  "name":"°F",
+                  "precision":2
+               },
+               {
+                  "id":"102",
+                  "name":"K",
+                  "precision":2
+               }
+            ]
+         }
+      ]
+   }
+}
+```

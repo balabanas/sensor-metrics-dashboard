@@ -1,0 +1,34 @@
+version: '3.6'
+
+services:
+
+  django:
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: bash -c "gunicorn smd.wsgi --bind 0.0.0.0:${DJANGO_PORT}"
+    container_name: django
+    image: django_image
+    volumes:
+      - ./:/django
+    env_file:
+      - .env
+    ports:
+      - '${DJANGO_PORT}:${DJANGO_PORT}'
+
+  frontend:
+    restart: always
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    image: frontend_image
+    depends_on:
+      - django
+    volumes:
+      - ./frontend/nginx:/etc/nginx/conf.d
+    env_file:
+      - .env
+    ports:
+      - '${FRONTEND_PORT}:${FRONTEND_PORT}'
